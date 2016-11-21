@@ -47,4 +47,5 @@ curl -k -XPATCH -H "Authorization: Bearer $APPToken" -F file=@${TempFile} https:
 
 cd ..
 
+# For troubleshooting purposes, you can comment out the 'rm -rf' below and see the output from curl within curl_output.txt
 rm -rf $TempDirectory
