@@ -6,8 +6,10 @@
 #
 # Define SkyATP Application Token (Paste in your value between the "")
 APPToken="Your_Application_Token_Here"
+#
 # Define the name of the feed you wish to leverage. 
 FeedName="Splunk_IPS_Blacklist"
+#
 # FeedName specified above must be created prior to deploying this alert. Example below using a feed named "Splunk_IPS_Blacklist"
 # curl -k -v -XPOST -H "Authorization: Bearer Your_App_Token" -F file=@badip.txt https://threat-api.sky.junipersecurity.net/v1/cloudfeeds/blacklist/file/ip/Splunk_IPS_Blacklist
 #
