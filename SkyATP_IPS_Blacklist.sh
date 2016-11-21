@@ -41,7 +41,7 @@ grep -E -o '(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0
 
 #  the output for the IP and add it to your desired BlackList
 
-curl -k -XPATCH -H "Authorization: Bearer $APPToken" -F file=@${TempFile} https://threat-api.sky.junipersecurity.net/v1/cloudfeeds/blacklist/file/ip/${FeedName} 2>&1 | tee -a curl_output.txt
+curl -v -k -XPATCH -H "Authorization: Bearer $APPToken" -F file=@${TempFile} https://threat-api.sky.junipersecurity.net/v1/cloudfeeds/blacklist/file/ip/${FeedName} 2>&1 | tee -a curl_output.txt
 
 # Cleanup and Exit
 
