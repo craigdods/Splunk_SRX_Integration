@@ -35,9 +35,9 @@ cd $TempDirectory
 # Extract the compressed alert
 gunzip -d *.gz
 
-#Parse file for IP's, then select the 4th item (Source Address) from the log field. This is what we'll add to our blacklist
+#Parse file for IP's, then select the 5th item (Destination Address) from the log field. This is what we'll add to our blacklist
 
-grep -E -o '(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)' tmp_0.csv | awk 'NR==4' > $TempFile
+grep -E -o '(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)' tmp_0.csv | awk 'NR==5' > $TempFile
 
 #  the output for the IP and add it to your desired BlackList
 
