@@ -17,19 +17,20 @@ FeedName="Splunk_IPS_Blacklist"
 # $8 is a predefined variable by Splunk. 
 # This variable contains the full path to the gzip'd file with the log entry that triggered the alert
 
-# Generate a unique folder to store our results in
+# Generate a unique string based on the exact time to name our directory with
 time=`date +'%d%m%y_%H%M%S%N'`
+# Declare and create a unique directory to store our results in named with $time
 TempDirectory=/var/tmp/$time
 mkdir $TempDirectory
 
 # Generate Temporary File to store results in
 TempFile=$TempDirectory/bad_ip.txt
 
-#Copy our log file to the new $TempDirectory
+#Copy Splunk's compressed alert to the new $TempDirectory
 cp $8 $TempDirectory
 cd $TempDirectory
 
-# Extract the compressed file
+# Extract the compressed alert
 gunzip -d *.gz
 
 #Parse file for IP's, then select the 4th item (Source Address) from the log field. This is what we'll add to our blacklist
