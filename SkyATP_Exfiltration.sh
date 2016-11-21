@@ -14,7 +14,7 @@ FeedName="Splunk_Exfil"
 # curl -k -v -XPOST -H "Authorization: Bearer Your_App_Token" -F file=@badip.txt https://threat-api.sky.junipersecurity.net/v1/cloudfeeds/blacklist/file/ip/Splunk_Exfil
 #
 # Search Filter being used within Splunk to generate the Alert (sourcetype should be modified to your own environment - you may have called it something else other than juniper:srx):
-# ssourcetype="juniper:srx" APPTRACK_SESSION AND source_zone_name="Inside" | where application="UNSPECIFIED_ENCRYPTED" OR application="OPENVPN" OR application="SSH" OR application="SSL"| where packets_from_server > 1000 AND ((bytes_from_server / bytes_from_client)*100) < 5 
+# sourcetype="juniper:srx" APPTRACK_SESSION AND source_zone_name="Inside" | where application="UNSPECIFIED_ENCRYPTED" OR application="OPENVPN" OR application="SSH" OR application="SSL"| where packets_from_server > 1000 AND ((bytes_from_server / bytes_from_client)*100) < 5 
 #
 # $8 is a predefined variable by Splunk. 
 # This variable contains the full path to the gzip'd file with the log entry that triggered the alert
