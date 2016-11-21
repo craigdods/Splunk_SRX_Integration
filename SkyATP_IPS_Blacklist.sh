@@ -14,7 +14,7 @@ FeedName="Splunk_IPS_Blacklist"
 # curl -k -v -XPOST -H "Authorization: Bearer Your_App_Token" -F file=@badip.txt https://threat-api.sky.junipersecurity.net/v1/cloudfeeds/blacklist/file/ip/Splunk_IPS_Blacklist
 #
 # Search Filter being used within Splunk to generate the Alert (sourcetype should be modified to your own environment - you may have called it something else other than juniper:srx):
-# sourcetype="juniper:srx" RT_IDP source_zone_name="Outside" AND (threat_severity="CRITICAL" OR threat_severity="HIGH")
+# sourcetype="juniper:srx" IDP_ATTACK_LOG_EVENT source_zone_name="Outside" AND (threat_severity="CRITICAL" OR threat_severity="HIGH")
 #
 # $8 is a predefined variable by Splunk. 
 # This variable contains the full path to the gzip'd file with the log entry that triggered the alert
