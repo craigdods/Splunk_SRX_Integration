@@ -1,7 +1,7 @@
 #!/bin/bash
 # Script must be placed in $SPLUNK_HOME/bin/scripts along with adding +x permissions (chmod +x)
 #
-# This script is intended to leverage the Alerting capabilities of Splunk to identify and prevent Data Exfiltration occuring as outlined described in the blog post
+# This script is intended to leverage the Alerting capabilities of Splunk to identify and prevent Data Exfiltration occuring as outlined in the blog post
 # SkyATP Threat Intel API is here http://www.juniper.net/techpubs/en_US/release-independent/sky-atp/information-products/topic-collections/sky-atp-cloudfeed-open-apis.html
 #
 # Define SkyATP Application Token (Paste in your value between the "")
