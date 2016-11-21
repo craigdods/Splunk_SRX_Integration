@@ -6,13 +6,16 @@
 #
 # Define SkyATP Application Token (Paste in your value between the "")
 APPToken="Your_Application_Token_Here"
-# Define the name of the feed you wish to create
-FeedName="IPS_Blacklist"
+# Define the name of the feed you wish to leverage. 
+FeedName="Splunk_IPS_Blacklist"
+# FeedName specified above must be created prior to deploying this alert. Example below using a feed named "Splunk_IPS_Blacklist"
+# curl -k -v -XPOST -H "Authorization: Bearer Your_App_Token" -F file=@badip.txt https://threat-api.sky.junipersecurity.net/v1/cloudfeeds/blacklist/file/ip/Splunk_IPS_Blacklist
 #
-# Search Filter being used within Splunk to generate the Alert:
-# sourcetype="juniper_srx" RT_IDP source_zone_name="Outside" AND (threat_severity="CRITICAL" OR threat_severity="HIGH")
+# Search Filter being used within Splunk to generate the Alert (sourcetype should be modified to your own environment - you may have called it something else other than juniper:srx):
+# sourcetype="juniper:srx" RT_IDP source_zone_name="Outside" AND (threat_severity="CRITICAL" OR threat_severity="HIGH")
 #
-# $8 is a predefined variable by Splunk. This variable contains the full path to the gzip'd file with the log entry that triggered the alert
+# $8 is a predefined variable by Splunk. 
+# This variable contains the full path to the gzip'd file with the log entry that triggered the alert
 
 # Generate a unique folder to store our results in
 time=`date +'%d%m%y_%H%M%S%N'`
